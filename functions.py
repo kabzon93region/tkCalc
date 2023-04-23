@@ -2,7 +2,7 @@ import tkinter as tk
 
 sym_list = ('+', '-', '*', '/', '=')
 sym_str = "+-*/="
-sym2_str = "+-%"
+sym2_str = "+-"
 sym3_str = "*/"
 calc_list = []
 
@@ -44,172 +44,171 @@ def btn_clear_function(txt: tk.Entry):
 
 
 def btn1_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '1')
-    print("add '1'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '1'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn2_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '2')
-    print("add '2'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '2'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn3_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '3')
-    print("add '3'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '3'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn4_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '4')
-    print("add '4'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '4'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn5_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '5')
-    print("add '5'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '5'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn6_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '6')
-    print("add '6'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '6'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn7_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '7')
-    print("add '7'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '7'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn8_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '8')
-    print("add '8'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '8'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn9_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '9')
-    print("add '9'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '9'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn0_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     txt.insert('end', '0')
-    print("add '0'")
-    print("end text: '", txt.get(), "'\n")
+    # print("add '0'")
+    # print("end text: '", txt.get(), "'\n")
 
 
 def btn_plus_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     try:
         str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
-            print(f"replace '{str_str[len(str_str) - 1]}' -> '+'")
+            # print(f"replace '{str_str[len(str_str) - 1]}' -> '+'")
             txt.delete(len(str_str) - 1, 'end')
             txt.insert('end', '+')
     except ValueError:
-        print("add '+'")
+        # print("add '+'")
         txt.insert('end', '+')
     except IndexError:
         print("not number for '+'")
-    finally:
-        print("end text: '", txt.get(), "'\n")
+    # finally:
+        # print("end text: '", txt.get(), "'\n")
 
 
 def btn_minus_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     try:
         str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
-            print(f"replace '{str_str[len(str_str) - 1]}' -> '-'")
+            # print(f"replace '{str_str[len(str_str) - 1]}' -> '-'")
             txt.delete(len(str_str) - 1, 'end')
             txt.insert('end', '-')
     except ValueError:
-        print("add '-'")
+        # print("add '-'")
         txt.insert('end', '-')
     except IndexError:
         print("not number for '-'")
-    finally:
-        print("end text: '", txt.get(), "'\n")
+    # finally:
+        # print("end text: '", txt.get(), "'\n")
 
 
 def btn_multi_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     try:
         str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
-            print(f"replace '{str_str[len(str_str) - 1]}' -> '*'")
+            # print(f"replace '{str_str[len(str_str) - 1]}' -> '*'")
             txt.delete(len(str_str) - 1, 'end')
             txt.insert('end', '*')
     except ValueError:
-        print("add '*'")
+        # print("add '*'")
         txt.insert('end', '*')
     except IndexError:
         print("not number for '*'")
-    finally:
-        print("end text: '", txt.get(), "'\n")
+    # finally:
+    #     print("end text: '", txt.get(), "'\n")
 
 
 def btn_split_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     try:
         str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
-            print(f"replace '{str_str[len(str_str) - 1]}' -> '/'")
+            # print(f"replace '{str_str[len(str_str) - 1]}' -> '/'")
             txt.delete(len(str_str) - 1, 'end')
             txt.insert('end', '/')
     except ValueError:
-        print("add '/'")
+        # print("add '/'")
         txt.insert('end', '/')
     except IndexError:
         print("not number for '/'")
-    finally:
-        print("end text: '", txt.get(), "'\n")
+    # finally:
+    #     print("end text: '", txt.get(), "'\n")
 
 
 def btn_percent_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     try:
         str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
             print("not number to percentage")
     except ValueError:
         txt.insert('end', '%')
-        print("add '%'")
+        # print("add '%'")
     except IndexError:
         print("not number to percentage")
-    finally:
-        print("end text: '", txt.get(), "'\n")
-        # result_function(txt)
+    # finally:
+    #     print("end text: '", txt.get(), "'\n")
 
 
 def btn_dot_function(txt: tk.Entry):
-    print("start text: '", txt.get(), "'")
+    # print("start text: '", txt.get(), "'")
     try:
         str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
             print("not number for dot")
     except ValueError:
         txt.insert('end', '.')
-        print("add '.'")
+        # print("add '.'")
     except IndexError:
         print("not number for dot")
-    finally:
-        print("end text: '", txt.get(), "'\n")
+    # finally:
+    #     print("end text: '", txt.get(), "'\n")
 
 
 def btn_result_function(txt: tk.Entry):
@@ -223,7 +222,7 @@ def btn_result_function(txt: tk.Entry):
             txt.delete(len(str_str) - 1, 'end')
             txt.insert('end', '=')
     except ValueError:
-        print("add '='")
+        # print("add '='")
         txt.insert('end', '=')
     except IndexError:
         print("not number for '='")
@@ -234,13 +233,13 @@ def btn_result_function(txt: tk.Entry):
 
 
 def result_function(txt: tk.Entry):
+
+    result2_function(txt)
+
     str_str: str = txt.get()
     a: str = ''
     b: str = ''
     c: str = ''
-
-
-    result2_function(txt)
 
     for item in str_str:
         if sym_str.find(item) < 0 and item != '%':
@@ -259,7 +258,7 @@ def result_function(txt: tk.Entry):
 
         elif sym_str.find(item) < 0 and item == '%':
             if len(c) > 0:
-                if float((float(a) / 100) * float(b)) != int((float(a) / 100) * float(b)):  # сравнение разницы между целочисленным отображением и с плавающей точкой
+                if float((float(a) / 100) * float(b)) != int((float(a) / 100) * float(b)):
                     b = str(float((float(a) / 100) * float(b)))
                 else:
                     b = str(int((float(a) / 100) * float(b)))
