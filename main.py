@@ -30,7 +30,7 @@ for i in range(5):
     window.grid_columnconfigure(i, minsize=50)
 
 txt = tk.Entry(window, bg=bgcolor, fg=txtcolor, relief='solid', justify='right', font=fontevar)
-txt.grid(row=0, column=0, columnspan=5, padx=2, pady=2, sticky='nwes')
+txt.grid(row=0, column=0, columnspan=4, padx=2, pady=2, sticky='nwes')
 
 btn1 = tk.Button(window, text='1', bg=bgcolor, fg=txtcolor, activebackground=actbgcolor, activeforeground=acttxtcolod,
                  relief='solid', font=fontvar, command=lambda: f.btn1_function(txt))
@@ -106,6 +106,12 @@ btn_result = tk.Button(window, text='=', bg=bgcolor, fg=txtcolor, activebackgrou
                        activeforeground=acttxtcolod, relief='solid', font=fontbvar,
                        command=lambda: f.btn_result_function(txt))
 btn_result.grid(row=2, column=4, rowspan=3, sticky='nwes', padx=2, pady=2)
+
+btn_clear = tk.Button(window, text='C', bg=bgcolor, fg=txtcolor, activebackground=actbgcolor,
+                       activeforeground=acttxtcolod, relief='solid', font=fontbvar,
+                       command=lambda: f.btn_clear_function(txt))
+btn_clear.grid(row=0, column=4, sticky='nwes', padx=2, pady=2)
+
 
 
 # ent1 = tk.Entry(window)  # создаем поле ввода, можно добавить параметр show=и указать символ который отображается вместо введенных
