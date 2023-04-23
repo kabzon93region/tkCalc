@@ -113,4 +113,6 @@ btn_clear = tk.Button(window, text='C', bg=bgcolor, fg=txtcolor, activebackgroun
                       command=lambda: f.btn_clear_function(txt))
 btn_clear.grid(row=0, column=4, sticky='nwes', padx=2, pady=2)
 
+btn_percent.config(state='disabled')
+
 window.mainloop()

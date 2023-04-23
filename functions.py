@@ -2,7 +2,7 @@ import tkinter as tk
 
 sym_list = ('+', '-', '*', '/', '=')
 sym_str = "+-*/="
-sym2_str = "+-"
+sym2_str = "+-%"
 sym3_str = "*/"
 calc_list = []
 
@@ -194,6 +194,7 @@ def btn_percent_function(txt: tk.Entry):
         print("not number to percentage")
     finally:
         print("end text: '", txt.get(), "'\n")
+        # result_function(txt)
 
 
 def btn_dot_function(txt: tk.Entry):
@@ -233,11 +234,13 @@ def btn_result_function(txt: tk.Entry):
 
 
 def result_function(txt: tk.Entry):
-    result2_function(txt)
     str_str: str = txt.get()
     a: str = ''
     b: str = ''
     c: str = ''
+
+
+    result2_function(txt)
 
     for item in str_str:
         if sym_str.find(item) < 0 and item != '%':
@@ -265,8 +268,10 @@ def result_function(txt: tk.Entry):
                 c = ''
             else:
                 print(f"! ERROR ! result_function: c = '{c}'")
-
+        # if
+    # for
     txt.insert('end', a)
+# def result_function
 
 
 def result2_function(txt: tk.Entry):
@@ -325,7 +330,6 @@ def result2_function(txt: tk.Entry):
                 calc_list.clear()
                 for item in str_str:
                     calc_list.append(item)
-                i = 0
             # if
         # if
     # for
