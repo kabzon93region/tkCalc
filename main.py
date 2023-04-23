@@ -11,7 +11,7 @@ acttxtcolod = '#15161A'
 title_str = "Кукуляторъ"
 icon_str = "main.ico"
 xw = 250  # задаем ширину окна
-yw = 175  # задаем высоту окна
+yw = 180  # задаем высоту окна
 xspos = (window.winfo_screenwidth() - xw) / 2  # рассчитываем отступ по ширине для создания окна на экране по центру
 yspos = (window.winfo_screenheight() - yw) / 2  # рассчитываем отступ по высоте для создания окна на экране по центру
 
@@ -20,10 +20,10 @@ window.geometry(
     "%dx%d+%d+%d" % (xw, yw, xspos, yspos))  # задаем ширину, высоту окна и отступы по ширине и высоте для создания окна
 window.resizable(False, False)  # задаем возможность изменять размер окна по ширине, высоте
 window.iconbitmap(icon_str)  # задаем иконку окна
-window.config(bg=bgcolor)  # задаем цвет фона в хекс формате
+window.config(bg=bgcolor)  # задаем цвет фона в hex формате
 fontvar = ('Arial', 10)
 fontbvar = ('Arial', 11, 'bold')
-fontevar = ('Arial', 12)
+fontevar = ('Arial', 11)
 
 for i in range(5):
     window.grid_rowconfigure(i, minsize=30)
@@ -106,18 +106,11 @@ btn_result = tk.Button(window, text='=', bg=bgcolor, fg=txtcolor, activebackgrou
                        activeforeground=acttxtcolod, relief='solid', font=fontbvar,
                        command=lambda: f.btn_result_function(txt))
 btn_result.grid(row=2, column=4, rowspan=3, sticky='nwes', padx=2, pady=2)
+window.bind('<Return>', lambda event: f.btn_result_function(txt))
 
 btn_clear = tk.Button(window, text='C', bg=bgcolor, fg=txtcolor, activebackground=actbgcolor,
-                       activeforeground=acttxtcolod, relief='solid', font=fontbvar,
-                       command=lambda: f.btn_clear_function(txt))
+                      activeforeground=acttxtcolod, relief='solid', font=fontbvar,
+                      command=lambda: f.btn_clear_function(txt))
 btn_clear.grid(row=0, column=4, sticky='nwes', padx=2, pady=2)
-
-
-
-# ent1 = tk.Entry(window)  # создаем поле ввода, можно добавить параметр show=и указать символ который отображается вместо введенных
-# ent1.grid(row=0, column=3, sticky='we')
-# btn1.config(command=lambda: ent1.delete(0, 'end'))
-# btn2.config(command=lambda: label1.config(text=ent1.get()))
-
 
 window.mainloop()

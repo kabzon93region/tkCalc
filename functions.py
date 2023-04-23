@@ -1,11 +1,11 @@
 import tkinter as tk
 
 sym_list = ('+', '-', '*', '/', '=')
-
 sym_str = "+-*/="
+sym2_str = "+-"
+sym3_str = "*/"
+calc_list = []
 
-
-# print(sym_str.find('7'))
 
 def append(string: str, add_chars: str):
     string = string + add_chars
@@ -14,19 +14,33 @@ def append(string: str, add_chars: str):
 
 def calc_function(a, b, c):
     if c == '+':
-        return str(float(a) + float(b))
+        if float(float(a) + float(b)) != int(float(a) + float(b)):
+            return str(float(float(a) + float(b)))
+        else:
+            return str(int(float(a) + float(b)))
     elif c == '-':
-        return str(float(a) - float(b))
+        if float(float(a) - float(b)) != int(float(a) - float(b)):
+            return str(float(float(a) - float(b)))
+        else:
+            return str(int(float(a) - float(b)))
     elif c == '*':
-        return str(float(a) * float(b))
+        if float(float(a) * float(b)) != int(float(a) * float(b)):
+            return str(float(float(a) * float(b)))
+        else:
+            return str(int(float(a) * float(b)))
     elif c == '/':
-        return str(float(a) / float(b))
+        if float(float(a) / float(b)) != int(float(a) / float(b)):
+            return str(float(float(a) / float(b)))
+        else:
+            return str(int(float(a) / float(b)))
     else:
-        print(f"! ERRPR ! : c = '{c}'")
+        print(f"! ERROR ! calc_function: c = '{c}'")
+        return a
 
 
 def btn_clear_function(txt: tk.Entry):
     txt.delete(0, 'end')
+    calc_list.clear()
 
 
 def btn1_function(txt: tk.Entry):
@@ -203,7 +217,6 @@ def btn_result_function(txt: tk.Entry):
     str_str: str = txt.get()
 
     try:
-        str_str: str = txt.get()
         if sym_list.index(str_str[len(str_str) - 1]) >= 0:
             print(f"replace '{str_str[len(str_str) - 1]}' -> '='")
             txt.delete(len(str_str) - 1, 'end')
@@ -220,13 +233,13 @@ def btn_result_function(txt: tk.Entry):
 
 
 def result_function(txt: tk.Entry):
+    result2_function(txt)
     str_str: str = txt.get()
     a: str = ''
     b: str = ''
     c: str = ''
 
     for item in str_str:
-        # print(item)
         if sym_str.find(item) < 0 and item != '%':
             if len(c) <= 0:
                 a = append(a, item)
@@ -238,16 +251,82 @@ def result_function(txt: tk.Entry):
                 c = item
             else:
                 a = calc_function(a, b, c)
-                print(f"result ({c}): {a}")
                 b = ''
                 c = item
 
         elif sym_str.find(item) < 0 and item == '%':
             if len(c) > 0:
-                a = str((float(a) / 100) * float(b))
+                if float((float(a) / 100) * float(b)) != int((float(a) / 100) * float(b)):  # сравнение разницы между целочисленным отображением и с плавающей точкой
+                    b = str(float((float(a) / 100) * float(b)))
+                else:
+                    b = str(int((float(a) / 100) * float(b)))
+                a = calc_function(a, b, c)
                 b = ''
                 c = ''
             else:
-                print(f"! ERROR ! : c = '{c}'")
+                print(f"! ERROR ! result_function: c = '{c}'")
 
     txt.insert('end', a)
+
+
+def result2_function(txt: tk.Entry):
+    str_str: str = txt.get()
+
+    for item in str_str:
+        calc_list.append(item)
+
+    for i in range(len(calc_list)):
+        a: str = ''
+        b: str = ''
+        c: str = ''
+        if i < len(calc_list) - 1:  # если не закончился текст
+            index = i
+            item = calc_list[index]
+
+            if sym3_str.find(item) >= 0:  # если вообще есть умножение или деление
+
+                for i2 in range(len(calc_list)):
+                    index2 = i2
+                    item2 = calc_list[index2]
+                    if sym2_str.find(item2) < 0 and sym3_str.find(item2) < 0 and item2 != '=':
+                        if len(c) <= 0:
+                            a = append(a, item2)
+                        else:
+                            b = append(b, item2)
+                    elif sym2_str.find(item2) >= 0 > sym3_str.find(item2) and item2 != '=':
+                        if len(c) <= 0:
+                            a = ''
+                        else:
+                            break
+                    elif sym2_str.find(item2) < 0 <= sym3_str.find(item2):
+                        c = item2
+                    # if
+                # for
+
+                tmp = calc_function(a, b, c)
+
+                del_index = len(b)
+                for i3 in range(len(a) + len(b) + len(c)):
+                    calc_list.pop(index + del_index)
+                    del_index -= 1
+
+                str_str = ''
+                for i4 in range(len(calc_list)):
+                    if i4 < index - len(a):
+                        str_str = append(str_str, calc_list[i4])
+                    elif i4 == index - len(a):
+                        str_str = append(str_str, tmp)
+                        str_str = append(str_str, calc_list[i4])
+                    elif i4 > index - len(a):
+                        str_str = append(str_str, calc_list[i4])
+                txt.delete(0, 'end')
+                txt.insert(index - len(a), str_str)
+
+                calc_list.clear()
+                for item in str_str:
+                    calc_list.append(item)
+                i = 0
+            # if
+        # if
+    # for
+# def result2_function
