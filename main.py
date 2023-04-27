@@ -9,7 +9,7 @@ actbgcolor = '#575A63'
 txtcolor = '#B8BAC0'
 acttxtcolod = '#15161A'
 title_str = "Кукуляторъ"
-icon_str = "main.ico"
+# icon_str = "main.ico"
 xw = 250  # задаем ширину окна
 yw = 180  # задаем высоту окна
 xspos = (window.winfo_screenwidth() - xw) / 2  # рассчитываем отступ по ширине для создания окна на экране по центру
@@ -19,7 +19,7 @@ window.title(title_str)  # задаем название окна
 window.geometry(
     "%dx%d+%d+%d" % (xw, yw, xspos, yspos))  # задаем ширину, высоту окна и отступы по ширине и высоте для создания окна
 window.resizable(False, False)  # задаем возможность изменять размер окна по ширине, высоте
-window.iconbitmap(icon_str)  # задаем иконку окна
+# window.iconbitmap(icon_str)  # задаем иконку окна
 window.config(bg=bgcolor)  # задаем цвет фона в hex формате
 fontvar = ('Arial', 10)
 fontbvar = ('Arial', 11, 'bold')
